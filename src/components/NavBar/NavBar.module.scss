@@ -1,0 +1,22 @@
+.navBar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-inline: 4.5em;
+}
+
+.buttonWrapper {
+  margin-left: auto;
+}
+
+.navTitle {
+  font-size: 2.25rem;
+  margin-right: 2rem;
+  font-family: var(--headingfont);
+
+}
+
+.navText {
+  font-family: var(--primaryfont);
+  font-size: 1.25rem;
+}
