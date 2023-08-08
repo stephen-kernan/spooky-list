@@ -8,7 +8,7 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# install linux dependencies 
+# install linux dependencies
 # these may vary by project
 # this list is relatively lightweight
 # and it handles most of what I need
@@ -19,15 +19,20 @@ RUN apk update && apk upgrade && \
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
 # install python dependencies
-COPY ./pyproject.toml .
-COPY ./poetry.lock .
-RUN /root/.local/bin/poetry install
+COPY /pyproject.toml .
+COPY /poetry.lock .
+COPY /Makefile .
 
-RUN ls && sleep 10
+# Update poetry path and configure Django settings
+ENV PATH="${PATH}:/root/.local/bin"
 
-# copy project
+# Install dependencies
+RUN poetry update && poetry install
+
+# Copy project files. We do this after install so that changes to files don't require install again.
 COPY . .
+RUN poetry run ./manage.py migrate
 
 # run at port 8000
 EXPOSE 8000
-CMD /root/.local/bin/poetry run ./manage.py runserver 0.0.0.0:8000
+CMD poetry run ./manage.py runserver 0.0.0.0:8000
