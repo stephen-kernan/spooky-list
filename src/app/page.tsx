@@ -34,7 +34,6 @@ const movies = [
     poster: 'https://flxt.tmsimg.com/assets/p18852_p_v10_al.jpg'
   }
 ]
-
 const LandingPage = (): JSX.Element => {
   return (
       <div data-testid={'landing-page'}>
