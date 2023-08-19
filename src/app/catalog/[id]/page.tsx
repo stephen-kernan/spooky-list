@@ -2,6 +2,9 @@
 import React from 'react'
 import { NavBar } from '@/components/NavBar/NavBar'
 import styles from './movieDetailPage.module.scss'
+import { Button } from '@/components/Button/Button'
+import { BookmarkOutlined, PlaylistAdd } from '@mui/icons-material'
+import { IconButton, Tooltip } from '@mui/material'
 
 const movie = {
   url: 'http://localhost:8000/movies/5/',
@@ -34,6 +37,20 @@ const Page: React.FC = () => {
                           <span><strong>Runtime:</strong> {movie.length_minutes} minutes</span>
                       </div>
                   </div>
+                  <div className={styles.buttons}>
+                      <Button variant={'secondary'} onClick={() => {}}>Mark as Watched</Button>
+                      <Tooltip title={'Bookmark'}>
+                          <IconButton>
+                              <BookmarkOutlined sx={{ fontSize: '2rem' }}/>
+                          </IconButton>
+                      </Tooltip>
+                      <Tooltip title={'Add to List'}>
+                          <IconButton>
+                              <PlaylistAdd sx={{ fontSize: '2rem' }}/>
+                          </IconButton>
+                      </Tooltip>
+                  </div>
+
                   <p>{movie.description}</p>
               </div>
           </div>
