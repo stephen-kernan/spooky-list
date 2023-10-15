@@ -13,6 +13,8 @@ const DashboardPage = (): JSX.Element => {
               image={'/ghostface.svg'}
               altText={'Two Cartoon Ghosts'}
               isFlipped={false}
+              buttonText={'Start Watching'}
+              redirectTo={'#'}
           />
       </div>
   )

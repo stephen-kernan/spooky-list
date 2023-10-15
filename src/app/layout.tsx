@@ -29,6 +29,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = async ({
   children
 }) => {
   const { hasSession, user } = await useSession()
+
   return (
       <html lang="en">
           <SessionProvider hasSession={hasSession} user={user}>
@@ -38,4 +39,5 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = async ({
   )
 }
 
+export const dynamic = 'force-dynamic'
 export default RootLayout

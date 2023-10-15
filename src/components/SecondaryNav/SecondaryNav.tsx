@@ -15,7 +15,7 @@ export const SecondaryNav: React.FC<SecondaryNavProps> = ({ initialTabName, tabs
   const currentTab = tabs.find(tab => tab.title === currentTabName)
 
   const switchTabs: MouseEventHandler<HTMLDivElement> = (e) => {
-    setCurrentTabName(e.target.innerHTML)
+    setCurrentTabName(e.currentTarget.innerHTML)
   }
 
   return (

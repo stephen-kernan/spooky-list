@@ -8,6 +8,7 @@ services:
     ports:
       - "3000:3000"
   backend:
+    env_file: ./backend/.env.prod
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -17,7 +18,7 @@ services:
     volumes:
       - ./backend:/app
     ports:
-      - '8000:8000'
+      - "8000:8000"
   db:
     container_name: spooky-list__db
     image: postgres:15.3-bullseye
@@ -26,4 +27,4 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DATABASE=spooky_movies
     ports:
-      - '5432:5432'
+      - "5432:5432"

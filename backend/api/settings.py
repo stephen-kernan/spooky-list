@@ -110,7 +110,7 @@ REST_FRAMEWORK = {
 USER = os.environ.get("DB_USER", "postgres")
 PASSWORD = os.environ.get("DB_PASSWORD", "postgres")
 NAME = os.environ.get("DB_NAME", "postgres")
-HOST = os.environ.get("DB_HOST", "host.docker.internal")
+HOST = os.environ.get("DB_HOST", "localhost")
 
 DATABASES = {
     'default': {
